@@ -1,0 +1,91 @@
+<html><head><title>JavaBot Documentation</title></head><body>
+<h3>JavaBot Documentation</h3><br><br>
+
+<b><u>Adding a function to be called during an event:</u></b><br>
+bot.events.add(sect, priority, flags, sub1, func1, sub2, func2 ...)<br>
+
+<dl><dt><b>
+Arguments
+</b></dt>
+<dd><dl><dt>
+sect
+</dt>
+<dd>
+one of the sections listed in "Events" documentation
+</dd>
+<dt>
+priority
+</dt>
+<dd>
+When the functions listed should be called in relation to other functions
+</dd>
+<dd>
+Default is 0. Set negative if function should be called earlier, positive if later.
+</dd>
+<dt>
+flags
+<dd><dl><dt>
+1
+</dt>
+<dd>
+Default function. If there are other functions for this event, will not be called.
+</dd></dl>
+<dd><dl><dt>
+-1
+<dd>
+Event calls are stopped after this function is called
+</dd></dl></dl></dl>
+
+<b><u>Raising an event:</u></b><br>
+bot.events.call(sect, sub, *args, **kwargs)<br><br>
+
+*args and **kwargs are passed to each function that is during the event.<br><br>
+
+<b><u>Events</u></b><br><br>
+
+<b>IO</b>
+<blockquote><u>send</u> (string msg): When a message is sent to Battle.net
+<u>addchat</u> (style1, text1, style2, text2 ...): Bot is adding chat
+<u>input</u> (str query, func ret_func): Functions for this event should query the user for information, then call ret_func, passing the user input as an argument</blockquote>
+  
+<dl><dt><b>
+bot
+</b></dt>
+<dd><dl><dt>
+load_config
+</dt>
+<dd>
+The bot wants all plugins to reload configuration
+</dd>
+<br><dt>
+configure
+</dt>
+<dd><i>
+(list settings)
+</i></dd>
+<dd>
+When a config window wants config display information
+</dd>
+<br><dd>
+Dictionary for each displayed plugin listed in settings variable:
+<dl><dt>
+(This is confusing. I find it best to look at another function that handles this as an example)
+</dt>
+<dt>
+caption
+</dt>
+<dd>
+Caption displayed on tab
+</dd>
+<u>file</u>: File that new settings should be saved to
+<u>title</u>: Section where new settings should be saved
+<u>dict</u>: Configuration values where config format entries don't specify
+<u>settings</u>: list of dictionaries containing individual settings formats
+<blockquote>Dictionary for each setting:
+<u>key</u>: setting name as it will be saved in config file
+<u>type</u>: (tuple) type of setting this is (possible values: text, checkbox, list)
+  For lists:
+  Next item in the tuple is a list containing choices that should be listed
+<u>caption</u>: What the label next to the setting should read</blockquote></blockquote></dl>
+	  
+</pre></body></html>
