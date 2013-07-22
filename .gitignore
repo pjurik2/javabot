@@ -1,0 +1,8 @@
+*.bni
+*.ppm
+*/icons/*
+*/lag/*.png
+*/lag/*.bmp
+*/lag/*.gif
+*.pyc
+Thumbs.db

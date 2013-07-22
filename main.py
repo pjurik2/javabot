@@ -205,8 +205,7 @@ class Bot (config_class):
                   {'key': 'bnlsserver', 'caption': 'BNLS Server',
                    'type': ('list', ['pyro.no-ip.biz',
                                      'jbls.org',
-                                     'bnls.valhallalegends.com',
-                                     'jbls.idiat.com'])},
+                                     'bnls.valhallalegends.com'])},
                   {'key': 'home'}]
         
         settings.insert(0, {'caption': 'Login',
